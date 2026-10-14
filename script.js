@@ -44,7 +44,7 @@ facilityData.forEach(item => {
   「水岸花都」與「後方尚未動工區」的多邊形是教學示意範圍，
   不是工程測量界線；若你們試教時有更精確的範圍，只要修改下面兩組座標即可。
 */
-const center = [24.25655, 120.71455];
+const center = [24.253123197945424, 120.72044605155733];
 
 if (typeof L === "undefined") {
   document.getElementById("map").innerHTML =
@@ -54,20 +54,12 @@ if (typeof L === "undefined") {
 } else {
 map = L.map("map", { zoomControl:true }).setView(center, 17);
 
-const street = L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
-  maxZoom: 20,
-  attribution: '&copy; OpenStreetMap contributors'
-});
 
 const satellite = L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}", {
   maxZoom: 19,
   attribution: 'Tiles &copy; Esri'
 }).addTo(map);
 
-L.control.layers({
-  "🗺️ 街道圖": street,
-  "🛰️ 衛星圖": satellite
-}, null, {collapsed:false}).addTo(map);
 
 /*
   本頁不預設任何「正確」設計範圍。
